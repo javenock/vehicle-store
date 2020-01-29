@@ -58,7 +58,7 @@ public class VehicleRestController {
 		this.assembler = assembler;
 	}
 	
-	@GetMapping(value="vehicle", produces="application/json")
+	@GetMapping(value="/", produces="application/json")
 	public Resources<Resource<Vehicle>> all(){
 		List<Resource<Vehicle>> employees = vehicleRepository.findAll().stream()
 				.map(assembler :: toResource)
