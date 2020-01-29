@@ -9,26 +9,23 @@ public class Vehicle {
 	private String name;
 	private String model;
 	private String company;	
-	private @Lob String info;
+	private  @Column(columnDefinition = "text") String info;
 	private double price;
 	private double numberInStock;
 	private double total;
 	private boolean inCart;
 	private String picPath;
 	public Vehicle() {}	
-	public Vehicle(String name, String model, String company, String info, double price, double numberInStock,
-			double total,boolean inCart, String picPath) {
-		super();
-		this.name = name;
-		this.model = model;
+	public Vehicle(String company,boolean inCart,String info, String model, String name,double numberInStock,String picPath, double price,double total) {
 		this.company = company;
-		this.info = info;
+		this.inCart = inCart;
+		this.info = info;		
+		this.model = model;
+		this.name = name;
+		this.numberInStock = numberInStock;
+		this.picPath = picPath;
 		this.price = price;
 		this.total = total;
-		this.inCart = inCart;
-		this.numberInStock = numberInStock;
-		
-		this.picPath = picPath;
 	}
 	public Long getId() {
 		return id;
@@ -93,9 +90,9 @@ public class Vehicle {
 	}
 	@Override
 	public String toString() {
-		return "Vehicle [id=" + id + ", name=" + name + ", model=" + model + ", company=" + company + ", info=" + info
-				+ ", price=" + price + ", numberInStock=" + numberInStock + ", total=" + total + ", inCart=" + inCart
-				+ ", picPath=" + picPath + "]";
+		return "Vehicle [id=" + id + ", company=" + company + ", inCart=" + inCart + ", info=" + info + ", model=" + model
+				+ ", name=" + name + ", numberInStock=" + numberInStock + ", picPath=" + picPath + ", price=" + price
+				+ ", total=" + total + "]";
 	}
 	
 	
